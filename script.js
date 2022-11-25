@@ -59,12 +59,13 @@ function addNewNote(text = '') {
 }
 
 // LocalSotage examples:
-// ---------------------
+// --------------------->
 // localStorage.setItem('name', 'Wicho')
 // localStorage.setItem('name')
 // localStorage.removeItem('name')
 
 // Update localStorage
+// -------------------->
 function updateLS() {
   const notesText = document.querySelectorAll('textarea')
 
