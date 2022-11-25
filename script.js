@@ -1,6 +1,6 @@
 const addBtn = document.getElementById('add')
 
-addBtn.addEventListener('click', () => addNewNote())
+addBtn.addEventListener('click', () => addNewNote('New Note'))
 
 function addNewNote(text = '') {
   const note = document.createElement('div')
@@ -22,6 +22,10 @@ function addNewNote(text = '') {
   const deleteBtn = note.querySelector('.delete')
   const main = note.querySelector('.main')
   const textArea = note.querySelector('textarea')
+
+  textArea.value = text
+  // Using marked library. documentation: "https://marked.js.org/"
+  main.innerHTML = marked.parse(text)
 
   deleteBtn.addEventListener('click', () => {
     note.remove()
