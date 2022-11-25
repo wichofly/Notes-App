@@ -36,6 +36,13 @@ function addNewNote(text = '') {
     textArea.classList.toggle('hidden')
   })
 
+  textArea.addEventListener('input', (e) => {
+    // e.target.value we can destructure to: 
+    const { value } = e.target
+
+    main.innerHTML = marked.parse(value)
+  })
+
 
   // we add the note every time we click
   document.body.appendChild(note)
