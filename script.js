@@ -1,5 +1,12 @@
 const addBtn = document.getElementById('add')
 
+// When we want to pull out that obeject or array from localstorage, we use JSON.parse. It would parse it out as an array or object.
+const notes = JSON.parse(localStorage.getItem('notes'))
+
+if (notes) {
+  notes.forEach(note => addNewNote(note))
+}
+
 addBtn.addEventListener('click', () => addNewNote('New Note'))
 
 function addNewNote(text = '') {
@@ -41,9 +48,31 @@ function addNewNote(text = '') {
     const { value } = e.target
 
     main.innerHTML = marked.parse(value)
-  })
 
+    updateLS()
+  })
 
   // we add the note every time we click
   document.body.appendChild(note)
-} 
+}
+
+// LocalSotage examples:
+// ---------------------
+// localStorage.setItem('name', 'Wicho')
+// localStorage.setItem('name')
+// localStorage.removeItem('name')
+
+// Update localStorage
+function updateLS() {
+  const notesText = document.querySelectorAll('textarea')
+
+  // Crreating an empty array of notes
+  const notes = []
+
+  // for each note we are taking the notes array and push them onto it, adding their values(the text we write in the note)
+  notesText.forEach(note => notes.push(note.value))
+
+  // We can only storage string in localSotrage, if we want to store an object or an array we use JSON.stringify.
+  // When we want to pull out that obeject or array from localstorage, we use JSON.parse. It would parse it out as an array or object.
+  localStorage.setItem('notes', JSON.stringify(notes))
+}
