@@ -49,6 +49,7 @@ body {
   font-size: 1.2rem;
   color: #ECB390;
   margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 .note textarea {
@@ -60,6 +61,10 @@ body {
   border: none;
   height: 357px;
   width: 100%;
+  padding: 20px;
+}
+
+.main {
   padding: 20px;
 }
 

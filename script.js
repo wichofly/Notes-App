@@ -7,7 +7,7 @@ function addNewNote(text = '') {
   note.classList.add('note')
 
   // "div class=main" if text then have no class, else then have a class of hidden.
-  // "textarea" if text has a class of hidden, else have no class
+  // "textarea" if text has a class of hidden(hidde the textarea), else have no class
   note.innerHTML = `
     <div class="tools">
       <button class="edit"><i class="fas fa-edit"></i></button>
@@ -18,6 +18,21 @@ function addNewNote(text = '') {
     <textarea class="${text ? "hidden" : ""}"></textarea>
     `
 
-    // we add the note every time we click
-    document.body.appendChild(note)
+  const editBtn = note.querySelector('.edit')
+  const deleteBtn = note.querySelector('.delete')
+  const main = note.querySelector('.main')
+  const textArea = note.querySelector('textarea')
+
+  deleteBtn.addEventListener('click', () => {
+    note.remove()
+  })
+
+  editBtn.addEventListener('click', () => {
+    main.classList.toggle('hidden')
+    textArea.classList.toggle('hidden')
+  })
+
+
+  // we add the note every time we click
+  document.body.appendChild(note)
 } 
