@@ -14,7 +14,8 @@ function addNewNote(text = '') {
   note.classList.add('note')
 
   // "div class=main" if text then have no class, else then have a class of hidden.
-  // "textarea" if text has a class of hidden(hidde the textarea), else have no class
+  // "textarea" if text has a class of hidden(hidde the textarea), else have no class. 
+  // We have the text 'New note' that's why the textarea is hidden.
   note.innerHTML = `
     <div class="tools">
       <button class="edit"><i class="fas fa-edit"></i></button>
@@ -54,7 +55,7 @@ function addNewNote(text = '') {
     updateLS()
   })
 
-  // we add the note every time we click
+  // we add the note every time we click it.
   document.body.appendChild(note)
 }
 
