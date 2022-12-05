@@ -31,6 +31,7 @@ function addNewNote(text = '') {
   const main = note.querySelector('.main')
   const textArea = note.querySelector('textarea')
 
+  // We are able to see 'New note' beacuse  we select the value of the textarea = text
   textArea.value = text
   // Using marked library. documentation: "https://marked.js.org/"
   main.innerHTML = marked.parse(text)
@@ -46,6 +47,7 @@ function addNewNote(text = '') {
     textArea.classList.toggle('hidden')
   })
 
+  // Saving the text when is updating to show on the note. 
   textArea.addEventListener('input', (e) => {
     // e.target.value we can destructure to: 
     const { value } = e.target
