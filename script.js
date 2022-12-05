@@ -1,6 +1,6 @@
 const addBtn = document.getElementById('add')
 
-// When we want to pull out that obeject or array from localstorage, we use JSON.parse. It would parse it out as an array or object.
+// When we want to pull out that obeject or array from localstorage and show then on the DOM, we use JSON.parse. It would parse it out as an array or object.
 const notes = JSON.parse(localStorage.getItem('notes'))
 
 if (notes) {
